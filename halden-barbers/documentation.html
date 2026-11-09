@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Halden — Documentation</title>
+<style>
+  body { font: 16px/1.65 system-ui, sans-serif; color: #10203d; background: #fafaf7; margin: 0; }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
+  h1, h2 { line-height: 1.2; }
+  h2 { margin-top: 2.2em; padding-top: 1em; border-top: 3px solid #10203d; }
+  code, pre { font-family: ui-monospace, Menlo, monospace; font-size: .92em; background: #eceee8; border-radius: 4px; }
+  code { padding: 2px 6px; }
+  pre { padding: 14px 16px; overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { text-align: left; padding: 8px; border-bottom: 1px solid #dfe2e6; vertical-align: top; }
+</style>
+</head>
+<body>
+<main>
+<h1>Halden — Barbershop Landing Page</h1>
+<p>Thank you for your purchase. This guide covers everything you need to put the template online with your own content. No build tools are required: open <code>index.html</code> in a browser and you're running. For a picture-by-picture walkthrough, see <code>quick-start.pdf</code>.</p>
+
+<h2>What's included</h2>
+<table>
+  <tr><th>File</th><th>Purpose</th></tr>
+  <tr><td><code>index.html</code></td><td>The page. Headings, text and contact details live here.</td></tr>
+  <tr><td><code>assets/css/style.css</code></td><td>All styling. Colours and fonts are variables at the top.</td></tr>
+  <tr><td><code>assets/js/main.js</code></td><td>Services and prices, barbers, opening hours, the booking flow and the "Next free chair" line.</td></tr>
+  <tr><td><code>assets/img/favicon.svg</code></td><td>Browser tab icon.</td></tr>
+  <tr><td><code>quick-start.pdf</code></td><td>Illustrated beginner guide.</td></tr>
+  <tr><td><code>LICENSE.txt</code></td><td>What you may and may not do with the template.</td></tr>
+</table>
+
+<h2>Change colours and fonts</h2>
+<p>Open <code>assets/css/style.css</code> and edit the variables in <code>:root</code>. The barber pole uses <code>--red</code>, white and <code>--blue</code>:</p>
+<pre>:root {
+  --navy: #10203d;  /* text, headings, booking section */
+  --red: #c8102e;   /* buttons and pole stripe */
+  --blue: #1d3d8f;  /* pole stripe */
+  --chalk: #eceee8; /* tinted section */
+}</pre>
+
+<h2>Services and prices</h2>
+<p>The price list and the booking options both come from <code>SERVICES</code> at the top of <code>assets/js/main.js</code>, so they always match:</p>
+<pre>{ group: "Cuts", name: "Skin fade", mins: 45, price: 40,
+  desc: "Fade down to the skin, blended by hand." },</pre>
+<p><code>group</code> is the heading on the price list, <code>mins</code> is how long the booking takes. Set <code>CURRENCY</code> at the top of the file.</p>
+
+<h2>Barbers</h2>
+<pre>{ name: "Leo Hart", initials: "LH", role: "Owner · classic cuts & shaves",
+  days: [2, 3, 4, 5, 6], photo: "assets/img/leo.jpg" },</pre>
+<p><code>days</code> are the days they work (0 = Sunday … 6 = Saturday). The booking flow only offers times when that barber is in. Add <code>photo</code> to replace the initials; portrait photos around 800 × 1000 px work best.</p>
+
+<h2>Opening hours and booking rules</h2>
+<ul>
+  <li><code>OPENING_HOURS</code>: one line per day, 24-hour times, <code>null</code> for closed.</li>
+  <li><code>SLOT_STEP</code>: minutes between start times (15 by default).</li>
+  <li><code>DAYS_AHEAD</code>: how many days ahead people can book.</li>
+</ul>
+
+<h2>Connecting real bookings</h2>
+<p>The booking flow works on its own as a demo. <code>DEMO_BUSY</code> marks some times as taken so the calendar looks realistic; set it to <code>false</code> before you go live. The template has no database, so it can't know about bookings made by phone or by other visitors. Choose one of these:</p>
+<ol>
+  <li><strong>Receive requests by email (simplest).</strong> Create a free form at Formspree and paste its URL into <code>FORM_ENDPOINT</code>. Each confirmed booking is emailed to you with service, barber, time, name and phone. You then confirm by text.</li>
+  <li><strong>Use a booking app.</strong> If you already use Square Appointments, Booksy, Fresha or Calendly, replace the booking section with their embed code or change the "Book a chair" buttons to link to your booking page.</li>
+</ol>
+
+<h2>Text, address and contact details</h2>
+<p>Search <code>index.html</code> for and replace <code>Halden</code>, <code>58 Canal Street</code>, <code>(555) 016-6500</code> and <code>@haldenbarbers</code>.</p>
+
+<h2>Publish</h2>
+<p>Upload the whole folder to any static host: Netlify, Vercel, GitHub Pages, Cloudflare Pages, or the <code>public_html</code> folder of regular web hosting.</p>
+
+<h2>Browser support</h2>
+<p>Current versions of Chrome, Edge, Firefox and Safari, on desktop and mobile. Keyboard accessible, and the moving barber pole stops for visitors who prefer reduced motion.</p>
+
+<h2>Credits</h2>
+<ul>
+  <li>Fonts: Big Shoulders Display and Karla, via Google Fonts (SIL Open Font License).</li>
+  <li>Icons and pattern: original, included in the template licence.</li>
+</ul>
+</main>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Halden Barbers — Haircuts, Fades & Beard Trims</title>
+  <meta name="description" content="Classic cuts, skin fades and hot-towel shaves. See prices, pick your barber and book a chair online in under a minute.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Halden Barbers, home">
+      <span class="brand-pole" aria-hidden="true"></span>
+      <span>Halden<small>Barbers · Est. 2014</small></span>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Menu</span>
+      <span class="bars" aria-hidden="true"></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#prices">Prices</a></li>
+        <li><a href="#barbers">Barbers</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a class="btn btn-red" href="#book">Book a chair</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <h1>Sharp cuts.<br>No small talk required.</h1>
+    <p class="lead">Classic cuts, skin fades and hot-towel shaves from three barbers who've been doing this for a long time. Book online, or walk in and wait with a coffee.</p>
+    <div class="hero-actions">
+      <a class="btn btn-red btn-lg" href="#book">Book a chair</a>
+      <a class="btn btn-line btn-lg" href="#prices">See prices</a>
+    </div>
+    <p class="next-free" data-next-free aria-live="polite"></p>
+  </div>
+  <!-- Signature element: the barber pole, laid on its side -->
+  <div class="pole-band" aria-hidden="true"><span></span></div>
+</section>
+
+<!-- ============ PRICES ============ -->
+<section class="section" id="prices">
+  <div class="wrap">
+    <header class="section-head">
+      <h2>Prices</h2>
+      <p>Every cut includes a hot-towel finish and a neck shave. Prices are the same whichever barber you choose.</p>
+    </header>
+    <!-- Services and prices come from SERVICES in assets/js/main.js, so the booking form always matches -->
+    <div class="price-board" data-price-board></div>
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section class="section section-ink" id="book">
+  <div class="wrap">
+    <header class="section-head">
+      <h2>Book a chair</h2>
+      <p>Four quick steps. You'll get a confirmation by text.</p>
+    </header>
+
+    <div class="booking" data-booking>
+      <ol class="b-steps" aria-label="Booking progress">
+        <li data-step-label="1" class="is-current">Service</li>
+        <li data-step-label="2">Barber</li>
+        <li data-step-label="3">Time</li>
+        <li data-step-label="4">Details</li>
+      </ol>
+
+      <div class="b-body">
+        <!-- Step 1 -->
+        <fieldset class="b-panel" data-panel="1">
+          <legend>Choose a service</legend>
+          <div class="b-options" data-services></div>
+        </fieldset>
+
+        <!-- Step 2 -->
+        <fieldset class="b-panel" data-panel="2" hidden>
+          <legend>Choose your barber</legend>
+          <div class="b-options" data-barbers></div>
+        </fieldset>
+
+        <!-- Step 3 -->
+        <div class="b-panel" data-panel="3" hidden>
+          <p class="b-legend" id="time-legend">Choose a day and time</p>
+          <div class="days" role="radiogroup" aria-labelledby="time-legend" data-days></div>
+          <div class="slots" role="radiogroup" aria-label="Available times" data-slots></div>
+          <p class="b-empty" data-slots-empty hidden></p>
+        </div>
+
+        <!-- Step 4 -->
+        <form class="b-panel b-form" data-panel="4" hidden novalidate data-book-form>
+          <p class="b-legend">Your details</p>
+          <div class="field">
+            <label for="b-name">Name</label>
+            <input id="b-name" name="name" type="text" autocomplete="name" required>
+            <p class="error">Enter your name.</p>
+          </div>
+          <div class="field">
+            <label for="b-phone">Mobile number</label>
+            <input id="b-phone" name="phone" type="tel" autocomplete="tel" required>
+            <p class="error">Enter a mobile number for your confirmation text.</p>
+          </div>
+          <label class="check"><input type="checkbox" name="remind" checked> Text me a reminder the day before</label>
+          <button class="btn btn-red btn-lg" type="submit">Confirm booking</button>
+        </form>
+
+        <!-- Done -->
+        <div class="b-panel b-done" data-panel="5" hidden tabindex="-1">
+          <p class="b-legend">You're booked.</p>
+          <p data-done-text></p>
+          <button type="button" class="btn btn-line" data-restart>Book another</button>
+        </div>
+      </div>
+
+      <aside class="b-summary" aria-live="polite">
+        <p class="sum-title">Your booking</p>
+        <dl>
+          <div><dt>Service</dt><dd data-sum="service">—</dd></div>
+          <div><dt>Barber</dt><dd data-sum="barber">—</dd></div>
+          <div><dt>When</dt><dd data-sum="when">—</dd></div>
+          <div><dt>Length</dt><dd data-sum="length">—</dd></div>
+        </dl>
+        <p class="sum-total"><span>Total</span><strong data-sum="total">—</strong></p>
+        <p class="sum-note">Pay in the shop, by card or cash.</p>
+        <button type="button" class="btn btn-line btn-back" data-back hidden>Back</button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BARBERS ============ -->
+<section class="section" id="barbers">
+  <div class="wrap">
+    <header class="section-head">
+      <h2>Barbers</h2>
+      <p>Ask for anyone, or choose "first available" and we'll seat you with whoever is free.</p>
+    </header>
+    <!-- Barbers come from BARBERS in assets/js/main.js -->
+    <div class="barbers" data-barber-cards></div>
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section class="section section-chalk" id="visit">
+  <div class="wrap visit-grid">
+    <div>
+      <h2>Visit</h2>
+      <dl class="contact">
+        <div><dt>Address</dt><dd>58 Canal Street<br>Your City, 00000</dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:+15550166500">(555) 016-6500</a></dd></div>
+        <div><dt>Instagram</dt><dd><a href="#">@haldenbarbers</a></dd></div>
+      </dl>
+      <p class="walkin"><strong>Walk-ins welcome.</strong> Booked clients go first, so expect a short wait at busy times. Saturday mornings are busiest.</p>
+    </div>
+    <div>
+      <table class="hours-table" data-hours-table>
+        <caption>Opening hours</caption>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <header class="section-head"><h2>FAQ</h2></header>
+    <div class="faq">
+      <details>
+        <summary>What if I'm running late?</summary>
+        <p>Call us. Up to 10 minutes late we'll still do the full service; after that we may need to shorten it or move you to the next free slot.</p>
+      </details>
+      <details>
+        <summary>Can I cancel or change my booking?</summary>
+        <p>Yes, reply to your confirmation text or call us at least 2 hours before. Late cancellations twice in a row mean we'll ask for a deposit next time.</p>
+      </details>
+      <details>
+        <summary>Do you cut kids' hair?</summary>
+        <p>Yes, any age. Kids' cuts are cheaper on weekdays before 3pm, when it's quieter.</p>
+      </details>
+      <details>
+        <summary>Do you do curly and textured hair?</summary>
+        <p>Absolutely. All three barbers cut every hair type, and Marcus specialises in curls and textured fades.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="footer-brand">Halden Barbers</p>
+    <p>© <span data-year></span> Halden Barbers. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">Privacy</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

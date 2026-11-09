@@ -1,0 +1,28 @@
+HALDEN — BARBERSHOP LANDING PAGE TEMPLATE
+Licence
+
+Copyright (c) 2026 InkAndArtLab. All rights reserved.
+
+STANDARD LICENCE (one end product)
+
+You MAY:
+- Use this template to build one website, for yourself or for one client.
+- Modify the code, design, colours and text as much as you like.
+- Use the finished website commercially.
+
+You MAY NOT:
+- Resell, redistribute, sublicense or share the template files, modified
+  or unmodified, as a template, theme or source-code product.
+- Use the template to build more than one website without buying an
+  additional licence for each one.
+- Include the template in a website builder, theme marketplace or any
+  product where end users can create their own sites from it.
+
+For use on multiple websites, buy one licence per website or contact the
+author for an extended licence.
+
+Third-party assets keep their own licences:
+- Big Shoulders Display, Karla: SIL Open Font License 1.1
+
+THE TEMPLATE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. THE AUTHOR
+IS NOT LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM ITS USE.
